@@ -5,7 +5,6 @@ import api from '../Api/toolsdata';
 const Tools = ({navigation}) => {
 
     const [data, setData] = useState(api);
-    //console.log(data);
 
     return (
         <View>
@@ -26,7 +25,7 @@ const Tools = ({navigation}) => {
                                     <Image style={{ height: 150, width: 150 }} source={require('../assets/images/apiimages/image.png')} />
                                 </View>
                                 <TouchableOpacity onPress={() => navigation.navigate(item.screen)} style={styles.itembtnstyle}>
-                                    <Text style={{ color: 'white', textAlign: 'center', fontFamily: 'Poppins-Regular' }}>{item.btn}</Text>
+                                    <Text style={{ color: 'white', textAlign: 'center', fontFamily: 'Poppins-Bold' }}>{item.btn}</Text>
                                 </TouchableOpacity>
                             </View>
                         )
@@ -45,19 +44,16 @@ const styles = StyleSheet.create({
     },
     headitemtext: {
         fontSize: 20,
-        fontFamily: 'Poppins-Medium'
+        fontFamily: 'Poppins-Bold'
     },
     itembtnstyle: {
-        padding: 10,
+        padding: 12,
         backgroundColor: 'darkviolet',
-        borderTopRightRadius: 20,
-        borderTopLeftRadius: 20
-        //borderRadius:20
+        borderBottomLeftRadius:20,
+        borderBottomRightRadius:20,
     },
     itemcontainer: {
         backgroundColor: 'violet',
-        //borderTopEndRadius: 20,
-        //borderTopLeftRadius: 20,
         marginBottom:20,
         borderRadius:20
     }
