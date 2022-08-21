@@ -15,8 +15,8 @@ const Home = ({navigation}) => {
         </View>
         <View>
             <TouchableOpacity onPress={() => navigation.navigate('All Tools')} style={styles.explore_tools}>
-                <Text style={{fontSize:17,color:'black',fontFamily:'Poppins-Medium'}}>Explore tools</Text>
-                <Icon name='tools'size={20} color='black' />
+                <Text style={{fontSize:17,color:'gray',fontFamily:'Poppins-Medium'}}>Explore tools</Text>
+                <Icon name='tools'size={20} color='gray' />
             </TouchableOpacity>
         </View>
       </View>

@@ -17,7 +17,7 @@ const Colors = () => {
 
   return (
     <SafeAreaView style={{ height: '100%', backgroundColor: '#52489c', padding: 20 }}>
-      <Text style={{ fontSize: 28, color: 'white', fontFamily: 'Poppins-Bold', paddingBottom: 20 }}>Generate a color</Text>
+      <Text style={{ fontSize: 24, color: 'white', fontFamily: 'Poppins-Bold', paddingBottom: 20 }}>Generate a color</Text>
       <View>
         <TouchableOpacity onPress={() => { setColor([...color, generateColor()]) }} style={{ backgroundColor: 'blue', borderRadius: 10,padding:10 }}>
           <Text style={{ fontSize: 17, textAlign: 'center', fontFamily: 'Poppins-Medium', color: 'white' }}>Generate</Text>

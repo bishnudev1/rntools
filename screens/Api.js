@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image, Alert, ActivityIndicator } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image, Alert, Linking } from 'react-native'
 import React, { useState, useLayoutEffect } from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
@@ -22,6 +22,14 @@ const Api = () => {
     setApi(fakeApi)
   }
 
+  const shareToWhatsapp = () => {
+    try {
+      Linking.openURL(`https://api.whatsapp.com/send?text=${randomApi}`)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const getRandApi = () => {
     const rand = Math.floor(Math.random() * api.length)
     const randomApi = api[rand]
@@ -40,59 +48,65 @@ const Api = () => {
   }, [])
 
   return (
-    <SafeAreaView style={{ height: '100%', backgroundColor: '#52489c', padding: 20 }}>
-      <Text style={{ fontSize: 28, color: 'white', fontFamily: 'Poppins-Bold', paddingBottom: 20 }}>Generate a Dummy Api</Text>
-      <View style={{ justifyContent: 'space-between', height: 500 }}>
+    <SafeAreaView style={{ height: '100%', backgroundColor: '#52489c', padding: 20, justifyContent:'space-between' }}>
+      <Text style={{ fontSize: 24, color: 'white', fontFamily: 'Poppins-Bold', paddingBottom: 20 }}>Generate a Dummy Api</Text>
+      <View style={styles.container}>
         <View style={{ backgroundColor: 'white', borderRadius: 10, padding: 5 }}>
-          <Text style={{ fontFamily: 'Poppins-Bold', textAlign: 'center', fontSize: 17 }}>{api_url}</Text>
+          <Text onPress={() => Linking.openURL(`https://reqres.in/api/users?page=${page}`)} style={{ fontFamily: 'Poppins-Bold', textAlign: 'center', fontSize: 17, color: 'black' }}>{api_url}</Text>
         </View>
-        {
-          randomApi ? (
-            <View style={styles.apicard}>
-              <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 22, textAlign: 'center', color: '#999' }}>{randomApi.id}</Text>
-              <View style={{ alignItems: 'center' }}>
-                <Image style={styles.avatarimg} source={{ uri: randomApi.avatar }} />
-              </View>
-              <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 22, textAlign: 'center', color: '#999' }}>{randomApi.first_name + randomApi.last_name}</Text>
-              <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 22, textAlign: 'center', color: '#999' }}>{randomApi.email}</Text>
-            </View>
-          ) : (
-            <View style={{ backgroundColor: 'white', height: 250, borderRadius: 20, justifyContent: 'center', alignItems: 'center' }}>
-              <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 22, textAlign: 'center' }}>Click on Get Api to generate a new Api</Text>
-            </View>
-          )
-        }
+        <View style={styles.apicard}>
+          <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 22, textAlign: 'center', color: 'black' }}>{randomApi.id}</Text>
+          <View style={{ alignItems: 'center' }}>
+            <Image style={styles.avatarimg} source={{ uri: randomApi.avatar }} />
+          </View>
+          <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 22, textAlign: 'center', color: 'black' }}>{randomApi.first_name + randomApi.last_name}</Text>
+          <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 22, textAlign: 'center', color: 'black' }}>{randomApi.email}</Text>
+        </View>
+        <View style={{flexDirection:'row',justifyContent:'space-evenly',marginTop:15}}>
         <TouchableOpacity style={styles.apibtn} onPress={getRandApi}>
-          <Text style={{ fontFamily: 'Poppins-Medium', textAlign: 'center', color: 'gray', fontSize: 18 }}>Get Api</Text>
+          <Text style={{ fontFamily: 'Poppins-Medium', textAlign: 'center', color: 'gray', fontSize: 18, paddingHorizontal:9 }}>API</Text>
           <Icon name='user' size={25} color='#999' />
         </TouchableOpacity>
         <TouchableOpacity style={styles.apibtn} onPress={changePath}>
-          <Text style={{ fontFamily: 'Poppins-Medium', textAlign: 'center', color: 'gray', fontSize: 18 }}>Change path</Text>
+          <Text style={{ fontFamily: 'Poppins-Medium', textAlign: 'center', color: 'gray', fontSize: 18, paddingHorizontal:9 }}>PATH</Text>
           <Icon name='folder' size={25} color='#999' />
         </TouchableOpacity>
+        </View>
       </View>
+      <TouchableOpacity onPress={shareToWhatsapp} style={{flexDirection:'row',justifyContent:'space-evenly',backgroundColor:'#52489c',elevation:10,padding:8,borderRadius:10}}>
+        <Text style={{color:'white',fontFamily:'Poppins-Medium',fontSize:17}}>Share</Text>
+        <Icon name='whatsapp' color='white' size={22}/>
+      </TouchableOpacity>
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  apibtn: {
-    padding: 10,
-    backgroundColor: 'white',
-    borderRadius: 15,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly'
+  container: {
+    //backgroundColor:'#52489c',
+    backgroundColor:'lightyellow',
+    padding:20,
+    justifyContent:'space-between',
+    borderRadius:15,
+    //height:550,
+    elevation:10
   },
   avatarimg: {
-    height: 150,
-    width: 150,
-    borderRadius: 100,
+    height:150,
+    width:150,
+    borderRadius:10
+  },
+  apibtn: {
+    paddingVertical:8,
+    paddingHorizontal:15,
+    backgroundColor:'white',
+    borderRadius:10,
+    marginHorizontal:10,
+    flexDirection:'row'
   },
   apicard: {
-    backgroundColor: 'white',
-    padding: 20,
-    borderRadius: 20,
-    justifyContent: 'space-between',
+    height:300,
+    justifyContent:'space-between'
   }
 })
 

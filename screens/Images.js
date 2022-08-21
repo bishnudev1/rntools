@@ -54,12 +54,12 @@ const Images = () => {
 
   return (
     <SafeAreaView style={{ height: '100%', backgroundColor: '#52489c', padding: 20 }}>
-      <Text style={{ fontSize: 28, color: 'white', fontFamily: 'Poppins-Bold', paddingBottom: 20 }}>Image and Icon Assets</Text>
+      <Text style={{ fontSize: 24, color: 'white', fontFamily: 'Poppins-Bold', paddingBottom: 20 }}>Image and Icon Assets</Text>
       <ScrollView>
         <View>
-          <Text style={{ fontSize: 20, fontFamily: 'Poppins-Bold' }}>Best Images for you</Text>
+          <Text style={{ fontSize: 18, fontFamily: 'Poppins-Bold' }}>Best Images for you</Text>
           <View>
-            <Icon style={{ paddingTop: 10 }} name='image' size={55} color='white' />
+            <Icon style={{ paddingTop: 10 }} name='image' size={45} color='white' />
             <View style={{ marginVertical: 20 }}>
               <FlatList
                 horizontal
@@ -69,12 +69,12 @@ const Images = () => {
                   return (
                     <View style={styles.imageContainer}>
                       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <Text style={{ fontSize: 22, color: '#999', fontFamily: 'Poppins-Regular' }}>{item.name}</Text>
-                        <Icon name='icons' size={20} color='#999' />
+                        <Text style={{ fontSize: 19, color: '#999', fontFamily: 'Poppins-Regular' }}>{item.name}</Text>
+                        <Icon name='icons' size={19} color='#999' />
                       </View>
-                      <Text style={{ fontSize: 16, color: '#999', fontFamily: 'Poppins-Medium' }}>{item.desc}</Text>
+                      <Text style={{ fontSize: 14, color: '#999', fontFamily: 'Poppins-Medium' }}>{item.desc}</Text>
                       <TouchableOpacity style={styles.toolsbtn} onPress={() => { Linking.openURL(item.url) }}>
-                        <Text style={{ textAlign: 'center', fontFamily: 'Poppins-Bold', fontSize: 18, color: 'gray' }}>Explore</Text>
+                        <Text style={{ textAlign: 'center', fontFamily: 'Poppins-Bold', fontSize: 16, color: 'gray' }}>Explore</Text>
                         <Icon name='image' size={16} color='grey' />
                       </TouchableOpacity>
                     </View>
@@ -86,9 +86,9 @@ const Images = () => {
           </View>
         </View>
         <View>
-          <Text style={{ fontSize: 20, fontFamily: 'Poppins-Bold' }}>Best Icons for you</Text>
+          <Text style={{ fontSize: 18, fontFamily: 'Poppins-Bold' }}>Best Icons for you</Text>
           <View>
-            <Icon style={{ paddingTop: 10 }} name='icons' size={55} color='white' />
+            <Icon style={{ paddingTop: 10 }} name='icons' size={45} color='white' />
             <View style={{ marginVertical: 20 }}>
               <FlatList
                 horizontal
@@ -97,12 +97,12 @@ const Images = () => {
                   return (
                     <View style={styles.imageContainer}>
                       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <Text style={{ fontSize: 22, color: '#999', fontFamily: 'Poppins-Regular' }}>{item.name}</Text>
-                        <Icon name='icons' size={20} color='#999' />
+                        <Text style={{ fontSize: 19, color: '#999', fontFamily: 'Poppins-Regular' }}>{item.name}</Text>
+                        <Icon name='icons' size={19} color='#999' />
                       </View>
-                      <Text style={{ fontSize: 16, color: '#999', fontFamily: 'Poppins-Medium' }}>{item.desc}</Text>
+                      <Text style={{ fontSize: 14, color: '#999', fontFamily: 'Poppins-Medium' }}>{item.desc}</Text>
                       <TouchableOpacity style={styles.toolsbtn} onPress={() => { Linking.openURL(item.url) }}>
-                        <Text style={{ textAlign: 'center', fontFamily: 'Poppins-Bold', fontSize: 18, color: 'gray' }}>Explore</Text>
+                        <Text style={{ textAlign: 'center', fontFamily: 'Poppins-Bold', fontSize: 16, color: 'gray' }}>Explore</Text>
                         <Icon name='icons' size={16} color='grey' />
                       </TouchableOpacity>
                     </View>
@@ -123,15 +123,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 20,
-    height: 200,
+    height: 170,
     justifyContent: 'space-between',
     marginRight: 10,
-    width: 350
+    width: 300,
+    //elevation:10
   },
   toolsbtn: {
     padding: 7,
     backgroundColor: 'wheat',
-    borderRadius: 20,
+    borderRadius: 15,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-evenly'
