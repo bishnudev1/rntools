@@ -3,12 +3,6 @@ A must needed app for developers where you can get best UI resources like colors
 
 ## App features
 ### Color Generator
-- Status: Done
-
-### API Generator
-- Status: Not done
-
-### Image & Icon finder
-- Status: Not done
-
-## Current app status: This app is 50% done
+### Images & Icon Finder
+### Create Dummy API
+### Malware Link Checker
